@@ -1,0 +1,239 @@
+/*
+  Maxim.css - styles for my two pages, food-and-drinks.html and computer-map.html.
+  Loaded after base.css, so this only adds page specific rules on top of the shared
+  palette, fonts and reset. I reuse the shared layout classes from base.css and
+  Anuar.css that both pages already depend on, like .pixel-page, .pixel-site-header,
+  .pixel-hero, .pixel-content-wrap and .pixel-section, since those are the common
+  foundation and rebuilding them here would just fight the cascade.
+*/
+
+.pixel-menu-icon {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.pixel-menu-note {
+  margin: 18px 0 0;
+  color: var(--pixel-light);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* grouping: both card types share the same base look before their own rules take over */
+.pixel-drink-card,
+.pixel-food-card {
+  border: 1px solid var(--pixel-lilac);
+  color: var(--pixel-white);
+  text-align: center;
+}
+
+/* drinks: flex row that wraps, cards grow and shrink to share the line evenly */
+.pixel-drinks-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.pixel-drink-card {
+  flex: 1 1 200px;
+  padding: 24px 20px;
+  background: linear-gradient(145deg, var(--pixel-purple) 0%, var(--pixel-black) 100%);
+  transition: background 0.2s ease;
+}
+
+/* :hover and :focus-within so the card reacts to mouse and to keyboard tabbing */
+.pixel-drink-card:hover,
+.pixel-drink-card:focus-within {
+  background: linear-gradient(145deg, var(--pixel-lilac) 0%, var(--pixel-purple) 100%);
+}
+
+.pixel-drink-card h3 {
+  margin: 0 0 8px;
+  font-family: "Teko Local", "Share Tech Mono Local", "Arial Narrow", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pixel-drink-card > p {
+  margin: 0;
+  color: var(--pixel-light);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* food: grid with fr units and a gap, two even columns */
+.pixel-food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.pixel-food-card {
+  /* relative so the grill badge below can be placed against this card, not the whole page */
+  position: relative;
+  padding: 30px 22px;
+  border-radius: 0 0 36px 36px;
+  background: linear-gradient(145deg, var(--pixel-purple) 0%, var(--pixel-black) 100%);
+}
+
+/* :nth-child gives the second card a lighter tone, same trick as the device tiers on the pricing page */
+.pixel-food-card:nth-child(2) {
+  background: linear-gradient(145deg, var(--pixel-lilac) 0%, var(--pixel-purple) 100%);
+}
+
+.pixel-food-card h3 {
+  margin: 0 0 10px;
+  font-family: "Teko Local", "Share Tech Mono Local", "Arial Narrow", sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pixel-food-card > p {
+  margin: 0;
+  color: var(--pixel-light);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* absolute against the relative card above, sits in the top right corner */
+.pixel-grill-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 10px;
+  background: var(--pixel-purple);
+  color: var(--pixel-white);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/*
+  specificity experiment, both rules target .pixel-grill-badge:
+  rule A above has specificity 0-1-0 (one class)
+  rule B below is [data-menu="grill"] .pixel-grill-badge, specificity 0-2-0 (attribute + class)
+  rule B wins because it is more specific, not because it comes later, so removing the
+  attribute selector from the food section would flip the badge color back to rule A
+*/
+[data-menu="grill"] .pixel-grill-badge {
+  background: var(--pixel-lilac);
+  color: var(--pixel-black);
+}
+
+@media (max-width: 700px) {
+  .pixel-food-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* computer map: each room is its own grid so the seats line up like the real floor plan */
+.pixel-room-section {
+  margin-top: 60px;
+}
+
+.pixel-room-grid {
+  display: grid;
+  gap: 14px;
+  margin: 35px auto 0;
+}
+
+.pixel-pc {
+  /* flexbox centers the label inside each seat box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  border: 1px solid var(--pixel-lilac);
+  background: var(--pixel-black);
+  color: var(--pixel-light);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pixel-pc:hover,
+.pixel-pc:focus-visible {
+  background: var(--pixel-purple);
+  color: var(--pixel-white);
+}
+
+/* duo room: only 2 seats, centered on the page with margin auto so it does not stretch full width */
+.pixel-room-grid-duo {
+  max-width: 320px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/*
+  main hall: 5 columns, minmax stops seats from getting too thin on a narrow window,
+  the screen spans the full row with grid-column so it sits above every seat
+*/
+.pixel-room-grid-hall {
+  grid-template-columns: repeat(5, minmax(70px, 1fr));
+}
+
+.pixel-hall-screen {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: var(--pixel-black);
+  border: 1px solid var(--pixel-light);
+  color: var(--pixel-light);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* vip room: 5 across, lilac border and text to set it apart from the regular seats */
+.pixel-room-grid-vip {
+  grid-template-columns: repeat(5, minmax(70px, 1fr));
+}
+
+.pixel-pc-vip {
+  border-color: var(--pixel-light);
+  color: var(--pixel-light);
+}
+
+.pixel-pc-vip:hover,
+.pixel-pc-vip:focus-visible {
+  background: var(--pixel-lilac);
+  color: var(--pixel-black);
+}
+
+/* centering technique 3: absolute plus transform, used to badge the vip room title without pushing the text */
+#vip-room {
+  position: relative;
+}
+
+#vip-room h2::after {
+  content: "gold";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  padding: 3px 10px;
+  border: 1px solid var(--pixel-light);
+  color: var(--pixel-light);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .pixel-room-grid-hall,
+  .pixel-room-grid-vip {
+    grid-template-columns: repeat(3, minmax(60px, 1fr));
+  }
+
+  #vip-room h2::after {
+    display: none;
+  }
+}
