@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Samarin Maxim">
+    <!-- Author: Samarin Maxim -->
+    <meta name="description" content="Food and drinks menu at Pixel Computer Club in Astana.">
+    <title>Food and Drinks - Pixel Computer Club</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="pixel-page">
+      <header class="pixel-site-header">
+        <nav class="pixel-navigation" aria-label="Primary navigation">
+          <div class="pixel-desktop-nav">
+            <a class="pixel-nav-link pixel-nav-home" href="index.html">↰</a>
+
+            <details class="pixel-nav-details">
+              <summary class="pixel-nav-link">About Pixel <span aria-hidden="true">⌄</span></summary>
+              <div class="pixel-nav-dropdown">
+                <a class="pixel-dropdown-card" href="about-pixel.html">
+                  <img src="assets/pixel/menu-north-bergen.jpg" alt="">
+                  <div>
+                    <h4>About Pixel</h4>
+                    <p>Our club is a welcoming place to play, practice and spend time with friends.</p>
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </a>
+                <a class="pixel-dropdown-card" href="index.html#organizations">
+                  <img src="assets/pixel/menu-organizations.jpg" alt="">
+                  <div>
+                    <h4>Pixel Gaming Community</h4>
+                    <p>Meet other players, improve your skills and compete in tournaments.</p>
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </a>
+                <a class="pixel-dropdown-card pixel-dropdown-card-wide" href="#contact">
+                  <div>
+                    <h4>Pixel Community League</h4>
+                    <p>Gaming events and activities for players of every level.</p>
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </a>
+              </div>
+            </details>
+
+            <a class="pixel-nav-link" href="all-locations.html">The devices and price</a>
+            <a class="pixel-nav-link pixel-nav-link-active" href="food-and-drinks.html">Food and drinks</a>
+            <a class="pixel-nav-link" href="computer-map.html">Computer map</a>
+
+            <a class="pixel-nav-link" href="#contact">Contact Us</a>
+          </div>
+
+          <details class="pixel-mobile-menu">
+            <summary class="pixel-menu-toggle" aria-label="Open menu"><span class="pixel-menu-icon" aria-hidden="true"></span></summary>
+            <div class="pixel-mobile-nav">
+              <a href="index.html">↰</a>
+              <a href="about-pixel.html">About Pixel</a>
+              <a href="all-locations.html">The devices and price</a>
+              <a href="food-and-drinks.html">Food and drinks</a>
+              <a href="computer-map.html">Computer map</a>
+              <a href="#contact">Contact Us</a>
+            </div>
+          </details>
+        </nav>
+      </header>
+
+      <main class="pixel-main">
+        <header class="pixel-hero">
+          <div class="pixel-hero-background"></div>
+          <div class="pixel-hero-inner">
+            <h1 class="pixel-hero-title">
+              <span>food and drinks<span class="pixel-cursor">_</span></span>
+            </h1>
+          </div>
+        </header>
+
+        <article class="pixel-article">
+          <div class="pixel-content-wrap">
+            <section class="pixel-section pixel-food-section" id="food-menu">
+              <!-- id here because this is a single unique landmark on the page, good for a QR code on the tables to link straight to the drinks list -->
+              <h2>Drinks</h2>
+              <p>Grab something cold at the counter while you play. These are the drinks people order the most.</p>
+
+              <!-- flex row, wraps on small screens, cards grow and shrink together -->
+              <div class="pixel-drinks-row">
+                <article class="pixel-drink-card">
+                  <span class="pixel-menu-icon" aria-hidden="true">🥤</span>
+                  <h3>Gorilla</h3>
+                  <p>Our most popular energy drink, always in the fridge.</p>
+                </article>
+                <article class="pixel-drink-card">
+                  <span class="pixel-menu-icon" aria-hidden="true">🥤</span>
+                  <h3>Cola</h3>
+                  <p>Classic ice cold cola, a simple pick between rounds.</p>
+                </article>
+                <article class="pixel-drink-card">
+                  <span class="pixel-menu-icon" aria-hidden="true">🧋</span>
+                  <h3>Maxi Tea</h3>
+                  <p>Bottled iced tea, a lighter option if you need a break from energy drinks.</p>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <div class="pixel-content-wrap">
+            <section class="pixel-section pixel-food-section">
+              <h2>Food</h2>
+              <p>Everything below is cooked to order on our own grill, so it takes a few minutes but it comes out hot.</p>
+
+              <!-- grid: two columns with fr units, one wide card spans both -->
+              <div class="pixel-food-grid">
+                <article class="pixel-food-card">
+                  <span class="pixel-menu-icon" aria-hidden="true">🍔</span>
+                  <h3>Burger</h3>
+                  <p>Grilled patty, fresh bun, the go to order for a quick session.</p>
+                  <span class="pixel-grill-badge">on the grill</span>
+                </article>
+                <article class="pixel-food-card">
+                  <span class="pixel-menu-icon" aria-hidden="true">🌭</span>
+                  <h3>Hot Dog</h3>
+                  <p>Grilled sausage, made fresh at the counter, ready fast.</p>
+                  <span class="pixel-grill-badge">on the grill</span>
+                </article>
+              </div>
+              <p class="pixel-pricing-note">Ask at the counter for today's price, it can change with what we have in stock.</p>
+            </section>
+          </div>
+        </article>
+      </main>
+
+      <footer class="pixel-site-footer" id="contact">
+        <div class="pixel-footer-inner">
+          <div class="pixel-footer-item">
+            <h5 aria-hidden="true"></h5>
+            <p>A next-level gaming experience at Pixel Computer Club</p>
+            <p><a class="pixel-button" href="https://2gis.kz/astana/firm/70000001081269255" target="_blank" rel="noreferrer">Open in 2 GIS</a></p>
+          </div>
+          <div class="pixel-footer-item" id="locations">
+            <h5 aria-hidden="true"></h5>
+            <h4>Pixel Main</h4>
+            <p><small>36 Mangilik El Avenue<br>Astana, 010000</small></p>
+          </div>
+          <div class="pixel-footer-item" id="birthday-parties">
+            <h5 aria-hidden="true"></h5>
+            <a href="https://www.instagram.com/pixel.cyberclub/" target="_blank" rel="noreferrer">@instagram</a><br>
+            <p class="pixel-footer-contact"><span class="pixel-footer-social-label">operates 24/7</span><br><span class="pixel-footer-social-label">+7‒775‒351‒36‒93</span><br><span class="pixel-footer-social-label">barmal066@gmail.com</span></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
