@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Teko Local";
-  src: url("assets/pixel/teko-300.ttf") format("truetype");
+  src: url("teko-300.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Teko Local";
-  src: url("assets/pixel/teko-400.ttf") format("truetype");
+  src: url("teko-400.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Teko Local";
-  src: url("assets/pixel/teko-700.ttf") format("truetype");
+  src: url("teko-700.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Share Tech Mono Local";
-  src: url("assets/pixel/share-tech-mono.ttf") format("truetype");
+  src: url("share-tech-mono.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -38,6 +38,9 @@
   --pixel-footer: #14121e;
   --pixel-purple: #36314f;
   --pixel-purple-hover: #51496e;
+  --pixel-white: #ffffff;
+  --pixel-light: var(--pixel-light-green);
+  --pixel-lilac: var(--pixel-green);
 }
 
 * {
@@ -88,11 +91,14 @@ a:focus-visible {
   height: 40px;
 }
 
-.pixel-desktop-nav {
+.pixel-desktop-nav,
+.pixel-desktop-nav-list {
   display: flex;
   justify-content: flex-end;
   height: 40px;
+  margin: 0;
   padding-right: 20px;
+  list-style: none;
 }
 
 .pixel-nav-item,
@@ -307,7 +313,7 @@ a:focus-visible {
 .pixel-hero-background {
   position: absolute;
   inset: 0;
-  background-image: url("assets/pixel/hero.jpg");
+  background-image: url("hero.jpg");
   background-position: 50% 50%;
   background-size: cover;
   filter: blur(4px);
@@ -595,19 +601,19 @@ a:focus-visible {
 }
 
 .pixel-slide-image-1 {
-  background-image: url("assets/pixel/slide-1.jpg");
+  background-image: url("slide-1.png");
 }
 
 .pixel-slide-image-2 {
-  background-image: url("assets/pixel/slide-2.jpg");
+  background-image: url("slide-2.png");
 }
 
 .pixel-slide-image-3 {
-  background-image: url("assets/pixel/slide-3.jpg");
+  background-image: url("slide-3.png");
 }
 
 .pixel-slide-image-4 {
-  background-image: url("assets/pixel/slide-4.jpg");
+  background-image: url("slide-4.png");
 }
 
 .pixel-slider-nav {
@@ -694,27 +700,27 @@ a:focus-visible {
 }
 
 .pixel-gallery-image-1 {
-  background-image: url("assets/pixel/slide-3.jpg");
+  background-image: url("slide-1.png");
 }
 
 .pixel-gallery-image-2 {
-  background-image: url("assets/pixel/gallery-2.jpg");
+  background-image: url("slide-2.png");
 }
 
 .pixel-gallery-image-3 {
-  background-image: url("assets/pixel/gallery-3.jpg");
+  background-image: url("slide-3.png");
 }
 
 .pixel-gallery-image-4 {
-  background-image: url("assets/pixel/gallery-4.jpg");
+  background-image: url("slide-4.png");
 }
 
 .pixel-gallery-image-5 {
-  background-image: url("assets/pixel/gallery-5.jpg");
+  background-image: url("slide-5.png");
 }
 
 .pixel-gallery-image-6 {
-  background-image: url("assets/pixel/gallery-6.jpg");
+  background-image: url("slide-6.png");
 }
 
 .pixel-site-footer {
@@ -736,7 +742,8 @@ a:focus-visible {
   padding: 0 20px 20px;
 }
 
-.pixel-footer-item h5 {
+.pixel-footer-item h5,
+.pixel-footer-rule {
   position: relative;
   height: 10px;
   margin: 0 0 26.72px;
@@ -744,7 +751,8 @@ a:focus-visible {
   border-top: 1px solid var(--pixel-green);
 }
 
-.pixel-footer-item h5::before {
+.pixel-footer-item h5::before,
+.pixel-footer-rule::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -842,7 +850,8 @@ a:focus-visible {
 }
 
 @media (max-width: 1000px) {
-  .pixel-desktop-nav {
+  .pixel-desktop-nav,
+  .pixel-desktop-nav-list {
     display: none;
   }
 
@@ -907,7 +916,8 @@ a:focus-visible {
     text-align: center;
   }
 
-  .pixel-footer-item h5 {
+  .pixel-footer-item h5,
+  .pixel-footer-rule {
     text-align: left;
   }
 }
